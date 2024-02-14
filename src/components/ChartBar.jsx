@@ -143,8 +143,11 @@ const ChartBar = ({ dataset }) => {
     <ThemeProvider theme={theme}>
       <div style={containerStyle}>
         <Paper style={chartStyle}>
-          <Typography variant="h5" style={{ marginBottom: "16px" }}>
-            Chart Heading
+          <Typography
+            variant="h4"
+            style={{ marginBottom: "16px", marginLeft: "320px" }}
+          >
+            Data Visualisation
           </Typography>
 
           {Object.keys(chartData).length > 0 ? (
