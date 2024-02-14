@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Chart as ChartJS } from "chart.js/auto";
 
+// CSS styles for components
 const containerStyle = {
   display: "flex",
   flexDirection: "column",
@@ -15,31 +16,30 @@ const containerStyle = {
   margin: "auto",
   marginTop: "20px",
   border: "1px solid black",
-  padding: "20px", // Added padding for spacing
-  borderRadius: "10px", // Rounded corners
+  padding: "20px",
+  borderRadius: "10px",
 };
 
 const chartStyle = {
   width: "100%",
-  flex: 1, // Allow the chart to take up remaining space
-  marginBottom: "20px", // Added margin at the bottom for spacing
+  flex: 1,
+  marginBottom: "20px",
   padding: "20px",
 };
 
 const buttonStyle = {
-  width: "150px", // Fixed width for consistency
+  width: "150px",
   borderRadius: "5px",
   margin: "0 30px 0 30px",
 };
 
+// ChartBar component with dynamic data fetching
 const ChartBar = ({ dataset }) => {
   const [chartData, setChartData] = useState({});
   const [selectedTimeRange, setSelectedTimeRange] = useState("12 Months");
 
+  // Function to generate dummy data based on time range
   const getChartDataByTimeRange = (timeRange) => {
-    // Replace this with your actual data fetching logic
-    // For now, using dummy data for demonstration
-
     const dummyData = {
       "12 Months": {
         labels: [
@@ -120,25 +120,30 @@ const ChartBar = ({ dataset }) => {
       // Add more dummy data as needed
     };
 
-    return dummyData[timeRange] || {}; // Return empty object for unknown time ranges
+    return dummyData[timeRange] || {};
   };
 
+  // Function to fetch data based on selected time range
   const fetchData = (timeRange) => {
     const data = getChartDataByTimeRange(timeRange);
     setChartData(data);
   };
 
+  // Initial data fetch on component mount
   useEffect(() => {
     fetchData(selectedTimeRange);
   }, [selectedTimeRange]);
 
+  // Function to handle time range button clicks
   const handleTimeRangeClick = (timeRange) => {
     fetchData(timeRange);
     setSelectedTimeRange(timeRange);
   };
 
+  // Material-UI theme for styling
   const theme = createTheme();
 
+  // JSX structure for the ChartBar component
   return (
     <ThemeProvider theme={theme}>
       <div style={containerStyle}>
@@ -147,7 +152,7 @@ const ChartBar = ({ dataset }) => {
             variant="h4"
             style={{ marginBottom: "16px", marginLeft: "320px" }}
           >
-            Data Visualisation
+            Data Visualization
           </Typography>
 
           {Object.keys(chartData).length > 0 ? (

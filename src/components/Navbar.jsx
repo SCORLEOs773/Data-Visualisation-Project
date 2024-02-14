@@ -6,8 +6,9 @@ import Button from "@mui/material/Button";
 import { styled } from "@mui/system";
 import { useNavigate } from "react-router-dom";
 
+// Styled components for custom styling
 const StyledAppBar = styled(AppBar)({
-  backgroundColor: "#2196f3", // Change the background color to your preference
+  backgroundColor: "#2196f3",
 });
 
 const StyledToolbar = styled(Toolbar)({
@@ -19,26 +20,29 @@ const StyledTypography = styled(Typography)({
   flexGrow: 1,
   textAlign: "left",
   fontWeight: "bold",
-  marginLeft: "16px", // Add left margin for better spacing
-  color: "#fff", // Text color
+  marginLeft: "16px",
+  color: "#fff",
 });
 
 const StyledButton = styled(Button)({
-  marginRight: "16px", // Add right margin for better spacing
-  backgroundColor: "#4caf50", // Button background color
-  color: "#fff", // Button text color
+  marginRight: "16px",
+  backgroundColor: "#4caf50",
+  color: "#fff",
   "&:hover": {
-    backgroundColor: "#45a049", // Hover background color
+    backgroundColor: "#45a049",
   },
 });
 
+// Navbar component with navigation functionality
 const Navbar = () => {
   const navigate = useNavigate();
 
+  // Navigation function for the "About Me" button
   const handleAboutMe = () => {
     navigate("/aboutme");
   };
 
+  // JSX structure for the Navbar
   return (
     <StyledAppBar position="static">
       <StyledToolbar>
