@@ -164,13 +164,13 @@ const ChartBar = ({ dataset }) => {
                     type: "category",
                     title: {
                       display: true,
-                      text: "X-Axis Label",
+                      text: "Time Range",
                     },
                   },
                   y: {
                     title: {
                       display: true,
-                      text: "Y-Axis Label",
+                      text: "Number of Users",
                     },
                   },
                 },
